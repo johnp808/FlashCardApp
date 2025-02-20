@@ -1,18 +1,33 @@
-//
-//  SwiftUIView.swift
-//  FlashCardApp
-//
-//  Created by John on 2/20/25.
-//
-
 import SwiftUI
+import Foundation
 
-struct SwiftUIView: View {
+struct WordListsView: View {
+    @State private var wordLists: [WordList] = [
+        WordList(name: "Week 1 Word Examples", words: [
+            Word(term: "Uzi", definition: "The coolest Person."),
+            Word(term: "Aimi", definition: "The Second Coolest Person")
+        ]),
+        WordList(name: "Week 2 Word Examples", words: [
+            Word(term: "Uzi2", definition: "The coolest Person."),
+            Word(term: "Aimi2", definition: "The Second Coolest Person")
+        ])
+    ]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(wordLists) { wordList in
+                NavigationLink(destination: WordListView(wordList: wordList)) {
+                    Text(wordList.name)
+
+                }
+            }
+            .navigationTitle("Word Lists")
+        }
     }
 }
 
-#Preview {
-    SwiftUIView()
+struct WordListsView_Previews: PreviewProvider {
+    static var previews: some View {
+        WordListsView()
+    }
 }

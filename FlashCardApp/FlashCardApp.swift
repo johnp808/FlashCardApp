@@ -8,12 +8,13 @@
 import SwiftUI
 
 @main
-struct FlashCardAppApp: App {
+struct FlashCardApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            WordListsView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

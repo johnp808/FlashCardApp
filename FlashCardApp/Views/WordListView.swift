@@ -1,18 +1,21 @@
-//
-//  WordListView.swift
-//  FlashCardApp
-//
-//  Created by John on 2/20/25.
-//
-
 import SwiftUI
 
 struct WordListView: View {
+    let wordList: WordList
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(wordList.words) { word in
+            Text(word.term)
+        }
+        .navigationTitle(wordList.name)
     }
 }
 
-#Preview {
-    WordListView()
+struct WordListView_Previews: PreviewProvider {
+    static var previews: some View {
+        WordListView(wordList: WordList(name: "Example", words: [
+            Word(term: "Test", definition: "A Sample Word")
+        ]))
+    }
 }
+

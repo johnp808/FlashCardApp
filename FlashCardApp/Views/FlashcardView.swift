@@ -1,10 +1,3 @@
-//
-//  FlashCardView.swift
-//  FlashCardApp
-//
-//  Created by John on 2/20/25.
-//
-
 import SwiftUI
 
 struct FlashCardView: View {
