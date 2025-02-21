@@ -5,7 +5,9 @@ struct WordListView: View {
     
     var body: some View {
         List(wordList.words) { word in
-            Text(word.term)
+            NavigationLink(destination: FlashcardView(wordListName: wordList.name, words: wordList.words, initialWord: word)) {
+                Text(word.term)
+            }
         }
         .navigationTitle(wordList.name)
     }

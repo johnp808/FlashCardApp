@@ -21,7 +21,13 @@ struct WordListsView: View {
 
                 }
             }
-            .navigationTitle("Word Lists")
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Word Lists")
+                        .font(.largeTitle)
+                        .bold()
+                }
+            }
         }
     }
 }
